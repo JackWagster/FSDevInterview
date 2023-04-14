@@ -71,6 +71,12 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<Book> findAllWithEagerRelationships() {
+        return bookRepository.findAllWithEagerRelationships();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Optional<Book> findOne(Long id) {
         log.debug("Request to get Book : {}", id);
         return bookRepository.findOneWithEagerRelationships(id);

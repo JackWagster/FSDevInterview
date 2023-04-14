@@ -50,6 +50,13 @@ public interface BookService {
     Page<Book> findAllWithEagerRelationships(Pageable pageable);
 
     /**
+     * Get all the books with eager load of many-to-many relationships.
+     *
+     * @return the list of entities.
+     */
+    List<Book> findAllWithEagerRelationships();
+
+    /**
      * Get the "id" book.
      *
      * @param id the id of the entity.

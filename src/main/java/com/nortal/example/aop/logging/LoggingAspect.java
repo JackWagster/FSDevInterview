@@ -45,7 +45,7 @@ public class LoggingAspect {
     @Pointcut(
         "within(com.nortal.example.repository..*)" +
         " || within(com.nortal.example.service..*)" +
-        " || within(com.nortal.example.web.rest..*)"
+        " || within(com.nortal.example.web.controller..*)"
     )
     public void applicationPackagePointcut() {
         // Method is empty as this is just a Pointcut, the implementations are in the advices.

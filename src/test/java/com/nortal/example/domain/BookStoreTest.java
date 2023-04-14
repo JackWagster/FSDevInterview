@@ -2,7 +2,7 @@ package com.nortal.example.domain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.nortal.example.web.rest.TestUtil;
+import com.nortal.example.web.controller.TestUtil;
 import org.junit.jupiter.api.Test;
 
 class BookStoreTest {

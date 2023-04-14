@@ -10,9 +10,9 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * not an ignored comment
+ * Bookstore entity
  */
-@Schema(description = "not an ignored comment")
+@Schema(description = "The Book Store Entity")
 @Entity
 @Table(name = "book_store")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)

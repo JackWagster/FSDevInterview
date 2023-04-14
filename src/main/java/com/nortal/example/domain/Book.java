@@ -11,9 +11,9 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * Task entity.\n@author The JHipster team.
+ * Book entity.\n@author The JHipster team.
  */
-@Schema(description = "Task entity.\n@author The JHipster team.")
+@Schema(description = "Book entity.\n@author The JHipster team.")
 @Entity
 @Table(name = "book")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
