@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20230414065039",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "book",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Task entity.\\n@author The JHipster team.",
+  "jpaMetamodelFiltering": false,
+  "name": "Book",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "lastName",
+      "otherEntityName": "author",
+      "otherEntityRelationshipName": "book",
+      "ownerSide": true,
+      "relationshipName": "author",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "bookStore",
+      "otherEntityRelationshipName": "book",
+      "ownerSide": false,
+      "relationshipName": "bookstore",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

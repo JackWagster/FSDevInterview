@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="BookStoreHeading">
+    <span jhiTranslate="fsDevInterviewApp.bookStore.home.title">Book Stores</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="fsDevInterviewApp.bookStore.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-book-store"
+        [routerLink]="['/book-store/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="fsDevInterviewApp.bookStore.home.createLabel"> Create a new Book Store </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="bookStores?.length === 0">
+    <span jhiTranslate="fsDevInterviewApp.bookStore.home.notFound">No Book Stores found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="bookStores && bookStores.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bookStoreName">
+            <div class="d-flex">
+              <span jhiTranslate="fsDevInterviewApp.bookStore.bookStoreName">Book Store Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="postalCode">
+            <div class="d-flex">
+              <span jhiTranslate="fsDevInterviewApp.bookStore.postalCode">Postal Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="city">
+            <div class="d-flex">
+              <span jhiTranslate="fsDevInterviewApp.bookStore.city">City</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="stateProvince">
+            <div class="d-flex">
+              <span jhiTranslate="fsDevInterviewApp.bookStore.stateProvince">State Province</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody
+        infinite-scroll
+        (scrolled)="loadPage(page + 1)"
+        [infiniteScrollDisabled]="page - 1 >= links['last']"
+        [infiniteScrollDistance]="0"
+      >
+        <tr *ngFor="let bookStore of bookStores; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/book-store', bookStore.id, 'view']">{{ bookStore.id }}</a>
+          </td>
+          <td>{{ bookStore.bookStoreName }}</td>
+          <td>{{ bookStore.postalCode }}</td>
+          <td>{{ bookStore.city }}</td>
+          <td>{{ bookStore.stateProvince }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/book-store', bookStore.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/book-store', bookStore.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(bookStore)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

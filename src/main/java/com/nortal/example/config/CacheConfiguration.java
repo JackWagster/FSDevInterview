@@ -48,6 +48,15 @@ public class CacheConfiguration {
             createCache(cm, com.nortal.example.domain.User.class.getName());
             createCache(cm, com.nortal.example.domain.Authority.class.getName());
             createCache(cm, com.nortal.example.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.nortal.example.domain.BookStore.class.getName());
+            createCache(cm, com.nortal.example.domain.BookStore.class.getName() + ".books");
+            createCache(cm, com.nortal.example.domain.Book.class.getName());
+            createCache(cm, com.nortal.example.domain.Book.class.getName() + ".authors");
+            createCache(cm, com.nortal.example.domain.Book.class.getName() + ".bookstores");
+            createCache(cm, com.nortal.example.domain.Author.class.getName());
+            createCache(cm, com.nortal.example.domain.Author.class.getName() + ".books");
+            createCache(cm, com.nortal.example.domain.BookStore.class.getName() + ".authors");
+            createCache(cm, com.nortal.example.domain.Author.class.getName() + ".bookStores");
             // jhipster-needle-ehcache-add-entry
         };
     }

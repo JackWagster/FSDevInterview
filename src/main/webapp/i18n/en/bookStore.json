@@ -1,0 +1,28 @@
+{
+  "fsDevInterviewApp": {
+    "bookStore": {
+      "home": {
+        "title": "Book Stores",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Book Store",
+        "createOrEditLabel": "Create or edit a Book Store",
+        "notFound": "No Book Stores found"
+      },
+      "created": "A new Book Store is created with identifier {{ param }}",
+      "updated": "A Book Store is updated with identifier {{ param }}",
+      "deleted": "A Book Store is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Book Store {{ id }}?"
+      },
+      "detail": {
+        "title": "Book Store"
+      },
+      "id": "ID",
+      "bookStoreName": "Book Store Name",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "stateProvince": "State Province",
+      "book": "Book"
+    }
+  }
+}
