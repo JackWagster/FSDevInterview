@@ -1,4 +1,4 @@
-// an ignored comment
+~// an ignored comment
 /** not an ignored comment */
 entity BookStore {
     bookStoreName String,
